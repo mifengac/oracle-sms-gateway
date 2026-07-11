@@ -132,20 +132,21 @@ docker build -t oracle-sms-gateway:latest .
 推荐宿主机端口使用 `5011`，容器内端口固定 `18080`：
 
 ```bash
-docker run -d \
-  --name oracle-sms-gateway \
-  --restart unless-stopped \
-  --env-file .env \
-  -e ORACLE_CLIENT_LIB_DIR=/opt/oracle/instantclient_11_2 \
-  -e LD_LIBRARY_PATH=/opt/oracle/instantclient_11_2 \
-  -p 5011:18080 \
-  oracle-sms-gateway:latest
+docker compose up -d
 ```
 
 导出给内网服务器：
 
 ```bash
 docker save oracle-sms-gateway:latest | gzip > oracle-sms-gateway_20260711.tar.gz
+```
+
+内网服务器导入后，在项目目录执行：
+
+```bash
+docker load -i oracle-sms-gateway_20260711.tar.gz
+docker compose up -d
+docker compose ps
 ```
 
 ## 测试
