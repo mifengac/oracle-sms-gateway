@@ -1,0 +1,12 @@
+services:
+  oracle-sms-gateway:
+    image: oracle-sms-gateway:latest
+    container_name: oracle-sms-gateway
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      ORACLE_CLIENT_LIB_DIR: /opt/oracle/instantclient_11_2
+      LD_LIBRARY_PATH: /opt/oracle/instantclient_11_2
+    ports:
+      - "5011:18080"

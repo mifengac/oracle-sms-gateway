@@ -1,0 +1,17 @@
+.git/
+.venv/
+.env
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.log
+tests/
+docs/
+systemd/
+*.tar
+*.tar.gz
+instantclient_11_2/*.jar
+instantclient_11_2/*:Zone.Identifier
+instantclient_11_2/ubuntu22-debs/
